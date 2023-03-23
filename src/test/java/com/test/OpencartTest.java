@@ -19,8 +19,8 @@ public class OpencartTest {
         driver = new FirefoxDriver(); //launch browser
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(40000, TimeUnit.MILLISECONDS);
-        driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
+       // driver.manage().timeouts().pageLoadTimeout(40000, TimeUnit.MILLISECONDS);
+       // driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
         driver.get("https://demo.opencart.com"); // enter the url
 
     }
@@ -42,6 +42,11 @@ public class OpencartTest {
     public void getLogo(){
        boolean b =  driver.findElement(By.xpath("//img[@title ='Your Store']")).isDisplayed();
        System.out.println(b);
+    }
+
+    @Test
+    public void verifyButton(){
+        boolean bol = driver.findElement(By.xpath("//button[@type='button']")).isDisplayed();
     }
 
     @AfterMethod
